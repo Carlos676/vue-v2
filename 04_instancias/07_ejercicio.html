@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/accounting.js/0.3.2/accounting.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.14.1/moment-with-locales.js"></script>
+    <title>eje filtros</title>
+</head>
+<body>
+    <div id="app">
+        <table>
+            <thead>
+                <tr>
+                    <th>Modelo</th>
+                    <th>Compañia</th>
+                    <th>Valor  unidad</th>
+                    <th>fecha</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr v-for="data in stock">
+                    <td>{{data.modelo}}</td>
+                    <td>{{data.compañia}}</td>
+                    <td>{{data.valor | valor}}</td>
+                    <td>{{data.fecha | fecha}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+     <!--CDN-->
+     <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+
+    <script>
+        Vue.filter('valor',function(datta){
+            return accounting.formatMoney(datta,'€',2,".",",");
+        })
+
+        Vue.filter('fecha', function(fe){
+            return moment(fe).format('MMMM Do YYYY, h:mm:ss a');
+        })
+        const app = new Vue({
+            el:"#app",
+            data:{
+                //array
+                stock:[
+                    //objetos
+                    { modelo:"galaxy a10",compañia:"samsung",valor:"450",fecha:"2018-11-12"},
+                    { modelo:"galaxy a20",compañia:"samsung",valor:"550",fecha:"2019-05-22"},
+                    { modelo:"galaxy a30",compañia:"samsung",valor:"750",fecha:"2022-06-12"},
+                    { modelo:"galaxy a40",compañia:"samsung",valor:"850",fecha:"2011-01-22"},
+                    { modelo:"galaxy a50",compañia:"samsung",valor:"950",fecha:"2018-12-12"},
+                ]
+            }
+        })
+
+    </script>
+    
+</body>
+</html>

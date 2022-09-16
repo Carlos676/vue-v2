@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>hook</title>
+</head>
+<body>
+    <div id="app">
+        <center>
+            {{titulo}}
+        </center>
+        <input type="text" v-model="nombre">
+        {{nombre}}
+    </div>
+     <!--CDN-->
+     <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+
+     <!--instancias independientes-->
+     <script>
+        const app = new Vue({
+            el:"#app",
+            data:{
+                titulo:"vue",
+                nombre:"carlos"
+            },
+            //beforeCreate despues de inicializar instancia
+            beforeCreate(){
+                alert("Antes de crear componentes "+this.nombre)
+            },
+            //create ejecutando cuando instancia
+            created(){
+                alert("creado componente "+this.nombre)
+            },
+            //beforeMount: se ejecuta justo antes de añadir al dom
+            beforeMount(){
+                alert("justo antes añadir al dom "+this.nombre)
+            },
+            //mounted se ejecuta despues de añadir al dom
+            mounted(){
+                alert("despues de añadir al dom "+this.nombre)
+            },
+            //beforeUpdate se ejecuta cuando el objeto data cambia
+            beforeUpdate(){
+                alert("objeto data cambia "+this.nombre)
+            },
+            //update se ejecuta despues de onejto data cambio
+            updated(){
+                alert("objeto data cambio en el dom " + this.nombre )
+            }
+            // beforeDestroy se ejecuta justo antes de eliminar la intancia
+        })
+     </script>
+    
+</body>
+</html>

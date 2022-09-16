@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+  
+    <div id="app">
+        
+        <h3>{{numero1}}</h3>
+        <h3>{{numero2}}</h3>
+        <input type="number" v-model="numero1" name="" id="">
+        <input type="number" v-model="numero2" name="" id="">
+        <p>Suma: {{suma()}}</p>
+        <p>resta: {{resta()}}</p>
+        <p>multiplicacion: {{mult()}}</p>
+        <p>division: {{divs()}}</p>
+    </div>
+  
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <script>
+        const app=new Vue({
+            el:"#app",
+            data:{
+                numero1:0,
+                numero2:0,
+
+            },
+            methods:{
+                suma:function(){
+                    return this.numero1-(-this.numero2)
+                },
+                resta:function(){
+                    return this.numero1-(this.numero2)
+                },
+                mult:function(){
+                    return this.numero1*(this.numero2)
+                },
+                divs:function(){
+                    return this.numero1/(this.numero2)
+                }
+            }
+        })
+    </script>
+    
+</body>
+</html>

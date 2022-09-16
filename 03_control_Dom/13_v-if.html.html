@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VI-IF</title>
+</head>
+<body>
+    ASDSSS
+    <div id="app">
+<!--password-->
+        <p>carlos</p>
+        <input type="text" v-model="login">
+        <p>el pass: afsdalskj</p>
+        <p v-if="resultados">accediste</p>
+        <p v-else>NO accediste</p>
+        
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+  <!--
+    
+  -->  
+    <script>
+        const app = new Vue({
+            el:"#app",
+            data:{
+                pass:"afsdalskj",
+                login:""
+            },
+            computed:{
+                resultados(){
+                    if (this.pass == this.login) {
+                        return true
+                    }else{
+                        return false   
+                    }
+                }
+            }
+        })
+    </script>
+    
+</body>
+</html>

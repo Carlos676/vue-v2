@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>data binding</title>
+</head>
+<body>
+
+    <div id="app">
+        <h1>{{mensaje}}</h1><!--usando interpolacion-->
+        <h2 v-text="mensaje"></h2><!--usando directivas-->
+        <input type="text" placeholder="digite el texto" v-model="mensaje">
+        <a :href="url">enlace</a>
+
+    </div>
+    <!--CDN v2-->
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <script>
+        /*
+        const data=document.querySelector("input");
+        const dataModifile=document.querySelector("h1");
+        data.addEventListener("keyup",function(){
+            dataModifile.innerHTML=data.value;
+        })
+        */
+       const app =new Vue({
+            el:"#app",
+            data:{
+                mensaje:"hola carlos",
+                url:"https://www.youtube.com/watch?v=Y4hfWBJ-UzY"
+            }
+       })
+        
+    </script>
+
+</body>
+</html>

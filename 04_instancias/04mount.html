@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>mount</title>
+</head>
+<body>
+    <div id="app">
+       <h1>{titulo}}</h1>
+       <p>{{componete}}</p>
+       <input type="text" v-model="nombre">
+       <p>{{nombre}}</p>
+
+    </div>
+    <div id="componente">
+        <p>{{compo2}}</p>
+        <h2>{{titulo}}</h2> 
+        <input type="text" v-model="nombre">
+        <p>{{nombre}}</p>
+
+        <button @click="montar()">montar</button>
+ 
+     </div>
+
+
+    <!--CDN-->
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+
+    <script>
+        const uno = new Vue({
+            data:{
+                titulo:"sistemas",
+                nombre:"carlos",
+                componete:"este es el componente uno"
+            }
+        })
+        const dos = new Vue({
+            el:"#componente",
+            data:{
+                texto:uno.nombre,
+                compo2:"este el componente dos"
+            },
+            methods:{
+                montar(){
+                    uno.$mount("#app")
+                }
+            }
+        })
+    </script>
+    
+</body>
+</html>

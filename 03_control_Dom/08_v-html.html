@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modificador de Eventos</title>
+</head>
+<body>
+    <div id="app">
+        <p v-html="titulo"></p>
+        <p v-html="link"></p>
+        
+    </div>
+
+<!--
+usando la directiva v-html
+que es lo mismo que muestra lo que se hizo en centencia vue para el html
+-->
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <script>
+        const app=new Vue({
+            el:"#app",
+            data:{
+                link:"<a href='https://render2web.com/net-6/que-es-un-orm/'>Enlace</a>",
+                titulo:"<h1>Enlace</h1>"
+
+            }
+        })
+    </script>
+
+</body>
+</html> 
