@@ -1,3 +1,18 @@
 body{
-    background: dodgerblue!important;
+    background: rgb(204, 222, 240)!important;
+}
+h2{
+    color: blue;
+    font-size: small;
+    font-family: Arial, Helvetica, sans-serif;
+}
+p{
+    color: blueviolet;
+    font-size: small;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+label{
+    padding: 10px;
+    font-size: larger;
+    font-family: serif;
 }

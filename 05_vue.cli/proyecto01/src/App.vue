@@ -3,26 +3,51 @@
     <img src="./assets/logo.png">
     <h1>{{ msg }}</h1>
     <h2>Essential Links</h2>
-    <ul>
-      <li><a href="https://vuejs.org" target="_blank">Core Docs</a></li>
-      <li><a href="https://forum.vuejs.org" target="_blank">Forum</a></li>
-      <li><a href="https://chat.vuejs.org" target="_blank">Community Chat</a></li>
-      <li><a href="https://twitter.com/vuejs" target="_blank">Twitter</a></li>
-    </ul>
+   
     <h2>Ecosystem</h2>
-    <h2>HOLA CARLOS</h2>
-    <ul>
-      <li><a href="http://router.vuejs.org/" target="_blank">vue-router</a></li>
-      <li><a href="http://vuex.vuejs.org/" target="_blank">vuex</a></li>
-      <li><a href="http://vue-loader.vuejs.org/" target="_blank">vue-loader</a></li>
-      <li><a href="https://github.com/vuejs/awesome-vue" target="_blank">awesome-vue</a></li>
-    </ul>
+    <h2>HOLA CARLOS mamani</h2>
+    <hr>
+
+    <!--colocamos la etiqueta que definimos en el componete saludar
+    pero en importado de la extencion VUe desde main.js-->
+    <App-saludar/>
+    
+    <!--ahora mostramos la etiqueta del componente bottom.veue y esta importado 
+    desde main.js donde se unio junto con el componente saludar-->
+    <enviar/>
+    <br>
+
+    <!--ahora hasemos un templaite en lines colocando un  comando en la etiqueta creada-->
+    <center>
+      <App-datausuario :nombre="carlos" ciudad="la paz"></App-datausuario><hr>
+      <App-datausuario :nombre="123" ></App-datausuario>
+    </center>
+    <enviar enline-template>
+      <h1>
+        para mostrar se usa teplate-lineal
+      </h1>
+      <br>
+      <button>Enviar</button>
+
+    </enviar>
+
   </div>
 </template>
 
 <script>
+
+//import saludar from "./components/saludar.vue";
+//ahoram modificamos el componentes de saludar
+import MensajeSaludar from "./components/MensajeSaludar.vue";
+
+
 export default {
   name: 'app',
+  components:{
+    //saludar
+    //colocando alias para la etiqueta 
+    "App-saludar":MensajeSaludar,
+  },
   data () {
     return {
       msg: 'Welcome to Your Vue.js App'
